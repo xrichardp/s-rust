@@ -4,4 +4,6 @@ You can use the v2ray-plugin + ss client, the plug-in method is websocket-tls, t
 
 ## Reference
 
+https://github.com/shadowsocks/shadowsocks-rust
+
 https://github.com/teddysun/shadowsocks_install/tree/master
