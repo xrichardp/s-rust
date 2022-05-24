@@ -4,4 +4,4 @@ wget ${SS_URL} && tar xf *-linux-musl.tar.xz -C /usr/local/bin && rm *-linux-mus
 wget https://dl.lamp.sh/files/v2ray-plugin_linux_amd64 -O /usr/local/bin/v2-plugin
 chmod a+x /usr/local/bin/ssserver /usr/local/bin/v2-plugin
 
-ssserver -s "0.0.0.0:${PORT}" -m $METHOD -k ${PASSWORD} --plugin "v2-plugin" --plugin-opts "server"
+ssserver -s "[::]:${PORT}" -m $METHOD -k ${PASSWORD} --plugin "v2-plugin" --plugin-opts "server"
