@@ -1,38 +1,20 @@
 # ss-rust
 
-## Depoly to Heroku
+## Depoly
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+Railway is also supported.
 
 ### Where can I get the information of free dyno ?
 
 https://www.heroku.com/pricing
 
-free dyno: 512m RAM, 550 hours runtime per month(Sleeps after 30 mins of inactivity)
+free dyno: 512m RAM, 550 hours runtime per month(sleep after 30 mins of inactivity)
 
 ### How do I monitor my free dyno hours quota ?
 
 https://dashboard.heroku.com/account/billing
-
-## Depoly to Railway
-
-$5 credit granted monthly
-
-512 MB RAM
-
-and shared CPU / container
-
-1 GB Disk
-
-Limited to $5 of usage
-
-Deploys shut off when limit is reached
-
-100 GB outbound network bandwidth
-
-Unlimited inbound network bandwidth
-
-Multiple custom domains with SSL
 
 ## Usage
 
@@ -42,7 +24,9 @@ port: 443
 
 plugin-opts: tls;host=mydomain.com
 
-### How do I use it with cloudflare worker proxy ?
+### How do I use it with cloudflare proxy ?
+
+use it with workers, and just copy the code as below and paste it to your worker
 
 ```
 addEventListener(
@@ -53,6 +37,19 @@ addEventListener(
      event.respondWith(fetch(request))
   }
 )
+```
+
+use it with pages, and just copy the code as below to a file named `_worker.js` and upload it to your pages
+
+```
+export default {
+    async fetch(request) {
+      let url=new URL(request.url);
+      url.hostname='app-name.herokuapp.com';
+      let new_request=new Request(url, request);
+      return fetch(new_request);
+    }
+};
 ```
 
 ## Reference
