@@ -4,8 +4,6 @@
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
 
-Railway is also supported.
-
 ### Where can I get the information of free dyno ?
 
 https://www.heroku.com/pricing
@@ -22,7 +20,23 @@ port: 443
 
 encrypt method: aes-256-gcm
 
-plugin-opts: tls;host=mydomain.com
+plugin-opts: ck-client.json
+
+`ck-client.json` should be configured as below:
+
+```
+{
+  "Transport": "cdn",
+  "ProxyMethod": "shadowsocks",
+  "EncryptionMethod": "plain",
+  "UID": "cloak uid",
+  "PublicKey": "cloak publickey",
+  "ServerName": "app-name.herokuapp.com",
+  "NumConn": 4,
+  "BrowserSig": "chrome",
+  "StreamTimeout": 300
+}
+```
 
 ### How do I use it with cloudflare proxy ?
 
