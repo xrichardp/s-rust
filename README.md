@@ -18,9 +18,9 @@ https://dashboard.heroku.com/account/billing
 
 ## Usage
 
-encrypt method: chacha20-ietf-poly1305
-
 port: 443
+
+encrypt method: aes-256-gcm
 
 plugin-opts: tls;host=mydomain.com
 
