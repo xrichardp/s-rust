@@ -1,6 +1,5 @@
 ## install cloak
-VERSION=$(wget -qO- https://api.github.com/repos/cbeuw/Cloak/releases/latest | grep 'tag_name' | cut -d\" -f4)
-CK_URL='https://github.com/cbeuw/Cloak/releases/download/${VERSION}/ck-server-linux-amd64-${VERSION}'
+CK_URL=$(wget -qO- https://api.github.com/repos/cbeuw/Cloak/releases/latest | grep -Eo 'https.*?ck-server-linux-amd64-v.*?\d')
 wget ${CK_URL} -qO /usr/local/bin/ck-server
 chmod +x /usr/local/bin/ck-server
 ## setup cloak
