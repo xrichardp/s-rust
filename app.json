@@ -6,6 +6,14 @@
         "PASSWORD": {
             "description": "password",
             "value": "5e49d65c685ec64e5cac"
+        },
+        "UID": {
+            "description": "cloak uid",
+            "value": "UehtkajNkW2QuioJ8P8GMw=="
+        },
+        "KEY": {
+            "description": "cloak private key",
+            "value": "KPYZEnxV43XnBzL9ZeXeKF6L6m+eaao64gBdlfCEnUg="
         }
     },
     "website": "",
