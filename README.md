@@ -1,10 +1,10 @@
 # ss-rust
 
+Depoly shadowsocks-rust with websocket plugin, such as v2-plugin, to heroku.
+
 ## Depoly
 
 [![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
-
-Railway is also supported.
 
 ### Where can I get the information of free dyno ?
 
@@ -18,15 +18,23 @@ https://dashboard.heroku.com/account/billing
 
 ## Usage
 
+configure your ss-client as below
+
+```
+server: app-name.herokuapp.com
+
 port: 443
 
 encrypt method: aes-256-gcm
 
-plugin-opts: tls;host=mydomain.com
+plugin: v2-plugin
+
+plugin-opts: tls;host=app-name.herokuapp.com
+```
 
 ### How do I use it with cloudflare proxy ?
 
-use it with workers, and just copy the code as below and paste it to your worker
+use it with cloudflare workers, and just copy the code as below and paste it to your worker
 
 ```
 addEventListener(
@@ -39,7 +47,7 @@ addEventListener(
 )
 ```
 
-use it with pages, and just copy the code as below to a file named `_worker.js` and upload it to your pages
+use it with cloudflare pages, and just copy the code as below to a file named `_worker.js` and upload it to your cloudflare pages
 
 ```
 export default {
